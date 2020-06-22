@@ -131,7 +131,7 @@ public class Tela_Cad_Usuario extends javax.swing.JFrame {
                 JButtoncancelarActionPerformed(evt);
             }
         });
-        Painel_Tela_Cad_Usuario.add(JButtoncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 84, 35));
+        Painel_Tela_Cad_Usuario.add(JButtoncancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 84, 35));
 
         JButtonAlterar2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         JButtonAlterar2.setText("Alterar");
@@ -149,7 +149,7 @@ public class Tela_Cad_Usuario extends javax.swing.JFrame {
                 JButtonExcluirActionPerformed(evt);
             }
         });
-        Painel_Tela_Cad_Usuario.add(JButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 84, 35));
+        Painel_Tela_Cad_Usuario.add(JButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 84, 35));
 
         jButtonBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButtonBuscar.setText("Buscar");
@@ -294,10 +294,10 @@ public class Tela_Cad_Usuario extends javax.swing.JFrame {
         int resposta =0;
         resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente exluir?");
         if (resposta == JOptionPane.YES_OPTION){
-            mod.setMatricula(Integer.parseInt(JTexFieldNome.getText()));
+            mod.setNome((JTexFieldNome.getText()));
             cadastro.Excluir(mod);
-        }
-        
+        } 
+         LimparCampos();
     }//GEN-LAST:event_JButtonExcluirActionPerformed
 
     public static void main(String args[]) {

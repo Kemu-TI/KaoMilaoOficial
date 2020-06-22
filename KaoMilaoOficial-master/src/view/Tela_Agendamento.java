@@ -60,6 +60,7 @@ public class Tela_Agendamento extends javax.swing.JFrame {
         JButtonCancelar = new javax.swing.JButton();
         jTextFieldN_Serviço = new javax.swing.JTextField();
         JTexFieldPesquisar = new javax.swing.JTextField();
+        JButtonExcluir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         JlabelAgendamento = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -173,9 +174,18 @@ public class Tela_Agendamento extends javax.swing.JFrame {
                 JButtonCancelarActionPerformed(evt);
             }
         });
-        getContentPane().add(JButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 84, 34));
+        getContentPane().add(JButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 84, 34));
         getContentPane().add(jTextFieldN_Serviço, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 140, 30));
         getContentPane().add(JTexFieldPesquisar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 350, 31));
+
+        JButtonExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JButtonExcluir.setText("Excluir");
+        JButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonExcluirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 84, 35));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imag/user.jpg"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -318,6 +328,17 @@ public class Tela_Agendamento extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JButtonCancelarActionPerformed
 
+    private void JButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonExcluirActionPerformed
+
+        int resposta =0;
+        resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente exluir?");
+        if (resposta == JOptionPane.YES_OPTION){
+            mod.setCpf((JTexFieldPesquisar.getText()));
+            cadastro.Excluir(mod);
+        }
+        LimparCampos();
+    }//GEN-LAST:event_JButtonExcluirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -356,6 +377,7 @@ public class Tela_Agendamento extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtonAlterar;
     private javax.swing.JButton JButtonCancelar;
+    private javax.swing.JButton JButtonExcluir;
     private javax.swing.JButton JButtonNovo;
     private javax.swing.JButton JButtonSalvar;
     private javax.swing.JComboBox JComboBoxTipoAnimal;

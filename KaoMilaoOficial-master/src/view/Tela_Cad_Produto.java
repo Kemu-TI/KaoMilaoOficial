@@ -55,6 +55,7 @@ public class Tela_Cad_Produto extends javax.swing.JFrame {
         jLabelDescricao = new javax.swing.JLabel();
         jLabelQtd_Estoque = new javax.swing.JLabel();
         jLabeCnpj = new javax.swing.JLabel();
+        JButtonExcluir = new javax.swing.JButton();
         jLabelValidade = new javax.swing.JLabel();
         jLabelIdNomeProduto = new javax.swing.JLabel();
         jTextFieldQtd_Estoque = new javax.swing.JTextField();
@@ -133,7 +134,7 @@ public class Tela_Cad_Produto extends javax.swing.JFrame {
                 JButtonCancelarActionPerformed(evt);
             }
         });
-        Painel_Tela_Cad_Produto.add(JButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 84, 35));
+        Painel_Tela_Cad_Produto.add(JButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 84, 35));
 
         jLabelValorFornece.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelValorFornece.setText("Vlr.Fornecedor");
@@ -162,6 +163,15 @@ public class Tela_Cad_Produto extends javax.swing.JFrame {
         jLabeCnpj.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabeCnpj.setText("Cnpj");
         Painel_Tela_Cad_Produto.add(jLabeCnpj, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
+
+        JButtonExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JButtonExcluir.setText("Excluir");
+        JButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonExcluirActionPerformed(evt);
+            }
+        });
+        Painel_Tela_Cad_Produto.add(JButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 84, 35));
 
         jLabelValidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelValidade.setText("Validade");
@@ -404,6 +414,17 @@ public class Tela_Cad_Produto extends javax.swing.JFrame {
         // TODO add your handling code here:*/
     }//GEN-LAST:event_jTextFieldIdNomeProdutoActionPerformed
 
+    private void JButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonExcluirActionPerformed
+
+        int resposta =0;
+        resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente exluir?");
+        if (resposta == JOptionPane.YES_OPTION){
+            mod.setNome((jTextFieldIdNomeProduto.getText()));
+            cadastro.Excluir(mod);
+        }
+        LimparCampos();
+    }//GEN-LAST:event_JButtonExcluirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -443,6 +464,7 @@ public class Tela_Cad_Produto extends javax.swing.JFrame {
     private javax.swing.JButton JButtonAlterar;
     private javax.swing.JButton JButtonBuscar;
     private javax.swing.JButton JButtonCancelar;
+    private javax.swing.JButton JButtonExcluir;
     private javax.swing.JButton JButtonNovo;
     private javax.swing.JButton JButtonSalvar;
     private javax.swing.JComboBox JComboBoxCategoria;

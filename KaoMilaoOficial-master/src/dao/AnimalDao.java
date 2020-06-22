@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Animal;
+import model.Produto;
 import model.Usuario;
 
 /**
@@ -102,4 +103,16 @@ public class AnimalDao extends AbstractDao {
 
     }
 
+    public void Excluir(Animal excluir) {
+        conex.conexao();
+        try {
+            PreparedStatement pst = conex.con.prepareStatement("delete from cad_animal where nome=?");
+            pst.setString(1, excluir.getNome());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Dados Excluidos com sucesso!\n");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error ao Excluir dados : \n" + ex.getMessage());
+        }
+        conex.desconectar();
+    }
 }

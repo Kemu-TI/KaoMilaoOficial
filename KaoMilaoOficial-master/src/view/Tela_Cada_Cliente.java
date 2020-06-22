@@ -76,6 +76,7 @@ public class Tela_Cada_Cliente extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jFormattedTextFieldValidade = new javax.swing.JFormattedTextField();
         jFormattedTextFieldData = new javax.swing.JFormattedTextField();
+        JButtonExcluir = new javax.swing.JButton();
         jTextFieldLogradouro = new javax.swing.JTextField();
         jTextFieldCidade = new javax.swing.JTextField();
         jTextFieldNumero = new javax.swing.JTextField();
@@ -137,7 +138,7 @@ public class Tela_Cada_Cliente extends javax.swing.JFrame {
                 JButtonCancelarActionPerformed(evt);
             }
         });
-        Painel_Tela_Cad_Cliente.add(JButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 84, 35));
+        Painel_Tela_Cad_Cliente.add(JButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 84, 35));
 
         jLabelCpf.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabelCpf.setText("Cpf");
@@ -255,6 +256,15 @@ public class Tela_Cada_Cliente extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         Painel_Tela_Cad_Cliente.add(jFormattedTextFieldData, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 120, 30));
+
+        JButtonExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JButtonExcluir.setText("Excluir");
+        JButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonExcluirActionPerformed(evt);
+            }
+        });
+        Painel_Tela_Cad_Cliente.add(JButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 84, 35));
         Painel_Tela_Cad_Cliente.add(jTextFieldLogradouro, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 430, 30));
         Painel_Tela_Cad_Cliente.add(jTextFieldCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 170, 190, 30));
         Painel_Tela_Cad_Cliente.add(jTextFieldNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 220, 120, 30));
@@ -479,6 +489,17 @@ public class Tela_Cada_Cliente extends javax.swing.JFrame {
 // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBuscarActionPerformed
 
+    private void JButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonExcluirActionPerformed
+
+        int resposta =0;
+        resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente exluir?");
+        if (resposta == JOptionPane.YES_OPTION){
+            mod.setNome((jTextFieldNome.getText()));
+            cadastro.Excluir(mod);
+        }
+            LimparCampos();
+    }//GEN-LAST:event_JButtonExcluirActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -520,6 +541,7 @@ public class Tela_Cada_Cliente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtonAlterar;
     private javax.swing.JButton JButtonCancelar;
+    private javax.swing.JButton JButtonExcluir;
     private javax.swing.JButton JButtonNovo;
     private javax.swing.JButton JButtonSalvar;
     private javax.swing.JComboBox JComboBoxEstado;

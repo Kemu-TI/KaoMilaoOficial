@@ -87,8 +87,8 @@ public class UsuarioDao extends AbstractDao {
     public void Excluir(Usuario excluir) {
         conex.conexao();
         try {
-            PreparedStatement pst = conex.con.prepareStatement("delete from cad_user where mat=?");
-            pst.setInt(1, excluir.getMatricula());
+            PreparedStatement pst = conex.con.prepareStatement("delete from cad_user where nome=?");
+            pst.setString(1, excluir.getNome());
             pst.execute();
             JOptionPane.showMessageDialog(null, "Dados Excluidos com sucesso!\n");
         } catch (SQLException ex) {

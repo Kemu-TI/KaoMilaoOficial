@@ -94,7 +94,18 @@ public class AgendamentoDao extends AbstractDao {
       
     }
     
-      
+    public void Excluir(Agendamento excluir) {
+        conex.conexao();
+        try {
+            PreparedStatement pst = conex.con.prepareStatement("delete from cad_agendamento where cpf=?");
+            pst.setString(1, excluir.getCpf());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Dados Excluidos com sucesso!\n");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error ao Excluir dados : \n" + ex.getMessage());
+        }
+        conex.desconectar();
+    }  
     
 }
         

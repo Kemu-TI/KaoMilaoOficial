@@ -106,6 +106,20 @@ public class ProdutoDao extends AbstractDao {
             return null;
         }
     }
+    
+    public void Excluir(Produto excluir) {
+        conex.conexao();
+        try {
+            PreparedStatement pst = conex.con.prepareStatement("delete from cad_produto where nome_produto=?");
+            pst.setString(1, excluir.getNome());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Dados Excluidos com sucesso!\n");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error ao Excluir dados : \n" + ex.getMessage());
+        }
+        conex.desconectar();
+    }
+    
 } 
         
 
