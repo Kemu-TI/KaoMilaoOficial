@@ -55,6 +55,7 @@ public class Tela_Cad_Usuario extends javax.swing.JFrame {
         JButtonSalvar = new javax.swing.JButton();
         JButtoncancelar = new javax.swing.JButton();
         JButtonAlterar2 = new javax.swing.JButton();
+        JButtonExcluir = new javax.swing.JButton();
         jButtonBuscar = new javax.swing.JButton();
         jLabelfundo = new javax.swing.JLabel();
         Titulo_Tela_Cad_Usuario = new javax.swing.JLabel();
@@ -140,6 +141,15 @@ public class Tela_Cad_Usuario extends javax.swing.JFrame {
             }
         });
         Painel_Tela_Cad_Usuario.add(JButtonAlterar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 84, 35));
+
+        JButtonExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        JButtonExcluir.setText("Excluir");
+        JButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JButtonExcluirActionPerformed(evt);
+            }
+        });
+        Painel_Tela_Cad_Usuario.add(JButtonExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 84, 35));
 
         jButtonBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButtonBuscar.setText("Buscar");
@@ -279,6 +289,17 @@ public class Tela_Cad_Usuario extends javax.swing.JFrame {
                    
     }//GEN-LAST:event_JButtonAlterar2ActionPerformed
 
+    private void JButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonExcluirActionPerformed
+        
+        int resposta =0;
+        resposta = JOptionPane.showConfirmDialog(rootPane, "Deseja realmente exluir?");
+        if (resposta == JOptionPane.YES_OPTION){
+            mod.setMatricula(Integer.parseInt(JTexFieldNome.getText()));
+            cadastro.Excluir(mod);
+        }
+        
+    }//GEN-LAST:event_JButtonExcluirActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -313,6 +334,7 @@ public class Tela_Cad_Usuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtonAlterar2;
+    private javax.swing.JButton JButtonExcluir;
     private javax.swing.JButton JButtonNovo;
     private javax.swing.JButton JButtonSalvar;
     private javax.swing.JButton JButtoncancelar;
@@ -334,4 +356,8 @@ public class Tela_Cad_Usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelfundo;
     private javax.swing.JLabel jLabelfundotitulo;
     // End of variables declaration//GEN-END:variables
+
+    private String String(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
